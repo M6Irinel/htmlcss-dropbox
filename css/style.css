@@ -1,11 +1,11 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 ul, ol, menu {
@@ -22,16 +22,26 @@ img {
 }
 
 .container_large {
-    max-width: 1220px;
+    max-width: 1200px;
 }
 
-.contaner_small {
+.container_small {
     max-width: 1000px;
     padding: 65px 0;
 }
 
 .section > * , section > * {
     margin: 0 auto;
+}
+
+a.button_blue {
+    background-color: #0061ff;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* header nav bar */
@@ -43,11 +53,11 @@ header .nav_bar a:not(.button_blue) {
 header .nav_bar a:not(.logo) {
     text-align: center;
     text-decoration: none;
-    padding: 8px 17px;
+    padding: 6px 16px;
 }
 
 .logo {
-    padding-top: 6px;
+    padding-top: 7px;
 }
 
 header a:hover:not(.button_blue) {
@@ -69,10 +79,9 @@ header a:hover:not(.button_blue) {
     margin-left: auto;
 }
 
-a.button_blue {
-    background-color: #0061ff;
-    color: #fff;
-    text-decoration: none;
+.nav {
+    gap: 5px;
+    align-items: center;
 }
 
 /* main header */
@@ -85,9 +94,9 @@ main > header {
 }
 
 header.section h1 {
-    font-size: 85px;
+    font-size: 77px;
     font-weight: 900;
-    padding-top: 86px;
+    padding-top: 80px;
 }
 
 header .box_bottom {
@@ -112,10 +121,134 @@ header .container_large p {
 }
 
 main .button_blue {
-    padding: 12px 17px;
+    padding: 11px 16px;
 }
 
 .arrow_down {
     font-size: 50px;
-    margin: 40px 0 0 10px;
+    margin: 40px 0 0 2px;
 }
+
+/* main main */
+
+.bussines {
+    margin-top: 5px;
+}
+
+.bussines h2 {
+    font-size: 40px;
+}
+
+.bussines .fatturazione {
+    margin-top: 60px;
+    font-size: 15px;
+}
+
+.fatturazione li {
+    gap: 50px;
+}
+
+.fatturazione li input {
+    display: none;
+}
+
+.fatturazione li input + label::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    aspect-ratio: 1/1;
+    border: 3px solid #d9d9d9;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.fatturazione li input:checked + label::before {
+    content: '';
+    display: inline-block;
+    width: 9px;
+    aspect-ratio: 1/1;
+    border: 6px solid #0061ff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* card */
+
+.table_col_3 {
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.table_col_3 .card {
+    width: calc((100% - 50px * 2) / 3);
+    border: 1px solid #c6c6c6;
+    font-size: 14px;
+}
+
+.card .titolo {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 500;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+.card .body {
+    padding: 30px;
+}
+
+.card .body h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.card .body .price {
+    margin-bottom: 10px;
+}
+
+.card .body .url {
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.card .body ul {
+    margin-bottom: 50px;
+}
+
+.card .body ul li {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.card .body ul li i {
+    margin-top: 2px;
+}
+
+.fa-check {
+    color: #0061ff;
+}
+
+.card .body a.button_blue {
+    margin-bottom: 30px;
+}
+
+.card .body .acquista_ora {
+    margin-bottom: 30px;
+}
+
+.card .body .acquista_ora a {
+    color: #0000ee;
+}
+
+.card .body hr {
+    width: 20%;
+    margin-bottom: 50px;
+}
+
+.card .body h4 {
+    margin-bottom: 30px;
+}
+
+/* icone delle ul dentro alle card */
