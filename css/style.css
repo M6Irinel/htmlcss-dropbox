@@ -27,21 +27,30 @@ img {
 
 .contaner_small {
     max-width: 1000px;
+    padding: 65px 0;
 }
 
 .section > * , section > * {
     margin: 0 auto;
 }
 
-/* header */
+/* header nav bar */
 
-header a:not(.logo) {
-    text-decoration: none;
+header .nav_bar a:not(.button_blue) {
     color: #000;
+}
+
+header .nav_bar a:not(.logo) {
+    text-align: center;
+    text-decoration: none;
     padding: 8px 17px;
 }
 
-header a:hover:not(.button_inizia) {
+.logo {
+    padding-top: 6px;
+}
+
+header a:hover:not(.button_blue) {
     text-decoration: underline;
 }
 
@@ -53,13 +62,60 @@ header a:hover:not(.button_inizia) {
 
 .nav_bar img {
     margin-right: 25px;
+    min-width: calc(127px / 2);
 }
 
 .nav.right {
     margin-left: auto;
 }
 
-.nav.right .button_inizia {
+a.button_blue {
     background-color: #0061ff;
     color: #fff;
+    text-decoration: none;
+}
+
+/* main header */
+
+main > header {
+    background-image: url('../img/background_azure.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 90%;
+}
+
+header.section h1 {
+    font-size: 85px;
+    font-weight: 900;
+    padding-top: 86px;
+}
+
+header .box_bottom {
+    margin-top: 50px;
+}
+
+.container_large .left {
+    flex-grow: 1;
+    flex-basis: 30%;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.container_large .img {
+    flex-basis: 70%;
+}
+
+header .container_large p {
+    line-height: 22px;
+    /* margin-bottom: 40px; */
+}
+
+main .button_blue {
+    padding: 12px 17px;
+}
+
+.arrow_down {
+    font-size: 50px;
+    margin: 40px 0 0 10px;
 }
