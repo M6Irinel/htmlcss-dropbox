@@ -22,12 +22,13 @@ img {
 }
 
 .container_large {
-    max-width: 1200px;
+    max-width: 1240px;
+    padding: 0 20px;
 }
 
 .container_small {
-    max-width: 1000px;
-    padding: 65px 0;
+    max-width: 1040px;
+    padding: 65px 20px;
 }
 
 .section > * , section > *, footer > * {
@@ -101,6 +102,77 @@ header a:hover:not(.logo, .button_blue) {
 
 .nav {
     align-items: center;
+}
+
+#nav_mobile {
+    display: none;
+}
+
+.nav_mobile {
+    width: 34px;
+    aspect-ratio: 1/1;
+    margin-left: 20px;
+    position: relative;
+    cursor: pointer;
+    display: none;
+}
+
+.icon_nav_mobile {
+    width: 70%;
+    height: 10%;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav_mobile::before {
+    content: '';
+    display: inline-block;
+    width: 70%;
+    height: 10%;
+    background-color: #000;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav_mobile::after {
+    content: '';
+    display: inline-block;
+    width: 70%;
+    height: 10%;
+    background-color: #000;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+
+#nav_mobile:checked + .nav_mobile::after {
+    transform:rotateZ(45deg);
+    top: 45%;
+    left: 15%;
+}
+#nav_mobile:checked + .nav_mobile::before {
+    transform: rotateZ(-45deg);
+    top: 45%;
+    left: 15%;
+}
+#nav_mobile:checked + .nav_mobile .icon_nav_mobile {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+    .nav > li:not(.nav.right > li:last-of-type) {
+        display: none;
+    }
+    .nav_mobile {
+        display: block;
+    }
 }
 
 /* main header */
@@ -378,6 +450,11 @@ main .button_blue {
 
 .azziende {
     flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.azziende > *:hover {
+    border: 15px solid #d1e9cd;
 }
 
 .azziende .img {
@@ -395,7 +472,7 @@ main .button_blue {
 
 .designit {
     background-color: #a2d39b;
-    border: 15px solid #d1e9cd;
+    /* border: 15px solid #d1e9cd; */
 }
 .arizona {
     background-color: #61082b;
@@ -436,6 +513,36 @@ main .button_blue {
 .container .description .editore {
     margin-top: 50px;
 }
+
+@media (max-width: 1440px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container > * {
+        width: 100%;
+    }
+    .container > .azziende {
+        flex-wrap: nowrap;
+    }
+}
+
+/* @media (max-width: 700px) {
+    .container {
+        flex-wrap: wrap;
+    }
+    .container > .azziende:first-of-type {
+        flex-basis: 25%;
+    }
+    .container > .description {
+        flex-basis: 75%;
+    }
+    .container > .azziende:last-of-type {
+        flex-basis: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+} */
 
 /* porta dropbox business */
 
@@ -559,4 +666,14 @@ footer .language > select > option {
     background-color: #000;
     border: 1px solid #fff;
     color: #fff;
+}
+
+@media (max-width: 850px) {
+    footer .row {
+        flex-direction: column;
+    }
+    footer .row .col ul {
+        display: flex;
+        flex-direction: row;
+    }
 }
