@@ -46,28 +46,43 @@ a.button_blue {
 
 /* header nav bar */
 
+header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+}
+
 header .nav_bar a:not(.button_blue) {
     color: #000;
 }
 
-header .nav_bar a:not(.logo) {
+header .nav_bar a.button_blue {
     text-align: center;
     text-decoration: none;
     padding: 6px 16px;
+}
+
+header .nav_bar a:not(.logo, .button_blue ) {
+    text-align: center;
+    text-decoration: none;
+    padding: 29px 20px;
+    white-space: nowrap;
 }
 
 .logo {
     padding-top: 7px;
 }
 
-header a:hover:not(.button_blue) {
-    text-decoration: underline;
+header a:hover:not(.logo, .button_blue) {
+    background-color: #f2eee8;
 }
 
 .nav_bar {
     align-items: center;
     height: 80px;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .nav_bar img {
@@ -80,7 +95,6 @@ header a:hover:not(.button_blue) {
 }
 
 .nav {
-    gap: 5px;
     align-items: center;
 }
 
@@ -96,7 +110,7 @@ main > header {
 header.section h1 {
     font-size: 77px;
     font-weight: 900;
-    padding-top: 80px;
+    padding-top: 160px;
 }
 
 header .box_bottom {
@@ -451,10 +465,6 @@ main .button_blue {
     margin-bottom: 60px;
 }
 
-.requests hr {
-    margin: 40px 0;
-}
-
 .requests .request p {
     font-weight: bold;
 }
@@ -463,6 +473,11 @@ main .button_blue {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    padding: 40px 0;
+}
+
+.requests .request:hover {
+    background-color: #ece7e0;
 }
 
 .requests .request i {
@@ -519,6 +534,7 @@ footer .language > * {
     border: 0;
     font-size: 16px;
     filter: invert(0.5);
+    cursor: pointer;
 }
 
 footer .language img {
