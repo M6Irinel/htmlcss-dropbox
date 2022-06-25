@@ -43,6 +43,11 @@ a.button_blue {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.2s;
+}
+
+a.button_blue:hover {
+    background-color: #79acff;
 }
 
 /* header nav bar */
@@ -53,9 +58,10 @@ header.fixed {
     left: 0;
     right: 0;
     background-color: #fff;
+    z-index: 10;
 }
 
-header .nav_bar a:not(.button_blue) {
+header .nav_bar a:not(.button_blue, .a_mobile) {
     color: #000;
 }
 
@@ -65,11 +71,12 @@ header .nav_bar a.button_blue {
     padding: 6px 16px;
 }
 
-header .nav_bar a:not(.logo, .button_blue ) {
+header .nav_bar a:not(.logo, .button_blue, .a_mobile) {
     text-align: center;
     text-decoration: none;
     padding: 29px 20px;
     white-space: nowrap;
+    transition: all 0.2s;
 }
 
 .logo {
@@ -104,16 +111,101 @@ header a:hover:not(.logo, .button_blue) {
     align-items: center;
 }
 
-#nav_mobile {
-    display: none;
-}
-
 .nav_mobile {
     width: 34px;
     aspect-ratio: 1/1;
     margin-left: 20px;
     position: relative;
+    display: none;
+}
+
+.nav_mobile input {
+    display: none;
+}
+
+.nav_mobile ul {
+    overflow: hidden;
+    height: 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: #f2eee8;
+    transition: height 0.2s, right 0.2s, left 0.2s;
+    border-bottom-left-radius: 10px;
+}
+
+.nav_mobile input:checked ~ ul {
+    height: 264px;
+    right: -20px;
+    left: -200px;
+}
+
+.nav_mobile ul li {
+    text-align: right;
+}
+
+.nav_mobile ul li a.a_mobile {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav_mobile ul li {
+    padding: 1px 0;
+}
+
+.nav_mobile ul li:hover:not(.nav_mobile ul li:first-of-type, .nav_mobile ul li:last-of-type) {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 0;
+}
+.nav_mobile ul li:hover:first-of-type {
+    border-bottom: 1px solid black;
+    padding: 1px 0 0;
+}
+.nav_mobile ul li:hover:last-of-type {
+    border-top: 1px solid black;
+    padding: 0 0 1px;
+}
+
+.button_mobile{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: 10;
     cursor: pointer;
+}
+
+.nav_mobile input:checked ~ .button_mobile::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    background-color: #f2eee8;
+    z-index: 11;
+    border-top-left-radius: 2px;
+}
+
+.nav_mobile input:checked ~ .icon_nav_mobile {
+    transform: rotate(45deg);
+    left: 5px;
+    top: 15px;
+}
+
+.nav_mobile input:checked ~ .icon_nav_mobile::before {
+    transform: rotate(90deg);
+    left: 0;
+    top: 0;
+}
+
+.nav_mobile input:checked ~ .icon_nav_mobile::after {
     display: none;
 }
 
@@ -127,11 +219,11 @@ header a:hover:not(.logo, .button_blue) {
     transform: translate(-50%, -50%);
 }
 
-.nav_mobile::before {
+.icon_nav_mobile::before {
     content: '';
     display: inline-block;
-    width: 70%;
-    height: 10%;
+    width: 100%;
+    height: 100%;
     background-color: #000;
     position: absolute;
     top: 10px;
@@ -139,11 +231,11 @@ header a:hover:not(.logo, .button_blue) {
     transform: translate(-50%, -50%);
 }
 
-.nav_mobile::after {
+.icon_nav_mobile::after {
     content: '';
     display: inline-block;
-    width: 70%;
-    height: 10%;
+    width: 100%;
+    height: 100%;
     background-color: #000;
     position: absolute;
     bottom: 10px;
@@ -162,12 +254,12 @@ header a:hover:not(.logo, .button_blue) {
 
 /* main header */
 
-main > header {
+/* main > header {
     background-image: url('../img/background_azure.jpg');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: 100% 91%;
-}
+} */
 
 header.section h1 {
     font-size: 77px;
@@ -179,13 +271,38 @@ header .box_bottom {
     margin-top: 50px;
 }
 
+@media (max-width: 900px) {
+    header .box_bottom {
+        flex-direction: column;
+    }
+    header .box_bottom > .img {
+        order: -1;
+    }
+}
+
+
 .container_large .left {
+    align-self: flex-start;
     flex-grow: 1;
     flex-basis: 30%;
     flex-direction: column;
     gap: 30px;
     align-items: flex-start;
+    position: relative;
 }
+
+.container_large .left::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: -5000px;
+    width: 10000px;
+    height: 3000px;
+    background-color: #b4d0e6;
+    z-index: -10;
+}
+
 
 .container_large .img {
     flex-basis: 70%;
@@ -213,6 +330,10 @@ main .button_blue {
 
 .bussines h2 {
     font-size: 40px;
+}
+
+.bussines ul li div.left label:hover, .bussines ul li div.right label:hover {
+    cursor: pointer;
 }
 
 .bussines .fatturazione {
@@ -365,6 +486,12 @@ main .button_blue {
     margin-top: 20px;
 }
 
+@media (max-width: 800px) {
+    .partner {
+        flex-direction: column;
+    }
+}
+
 .partner .img {
     flex-basis: 61%;
 }
@@ -405,6 +532,14 @@ main .button_blue {
     width: calc((100% - 50px * 2) / 3);
 }
 
+@media (max-width: 760px) {
+    .card_2 {
+        flex-basis: 0;
+        flex-grow: 1;
+        min-width: 190px;
+    }
+}
+
 .card_2 h3 {
     font-size: 24px;
     margin-bottom: 30px;
@@ -438,11 +573,19 @@ main .button_blue {
     cursor: pointer;
 }
 
-.azziende > *:hover {
+/* DESIGNI BORDER DEFALT */
+.azziende .img.designit {
+    border: 15px solid #d1e9cd;
+}
+
+.azziende > .img:not(.designit):hover {
     border: 15px solid #d1e9cd;
 }
 
 .azziende .img {
+    user-select: none;
+    border: 0px solid #d1e9cd;
+    transition: all 0.1s;
     width: 50%;
     aspect-ratio: 1/1;
     display: flex;
@@ -510,6 +653,10 @@ main .button_blue {
     .container > .azziende {
         flex-wrap: nowrap;
     }
+    .azziende .img {
+        width: 25%;
+        aspect-ratio: 1/1;
+    }
 }
 
 /* porta dropbox business */
@@ -562,6 +709,7 @@ main .button_blue {
     align-items: center;
     cursor: pointer;
     padding: 40px 0;
+    transition: all 0.2s;
 }
 
 .requests .request:hover {
@@ -622,7 +770,11 @@ footer .language > * {
     border: 0;
     font-size: 16px;
     filter: invert(0.5);
+}
+
+footer .language > select:hover {
     cursor: pointer;
+    text-decoration: underline;
 }
 
 footer .language img {
