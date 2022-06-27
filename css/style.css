@@ -8,6 +8,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 ul, ol, menu {
     list-style: none;
 }
@@ -254,13 +258,6 @@ header a:hover:not(.logo, .button_blue) {
 
 /* main header */
 
-/* main > header {
-    background-image: url('../img/background_azure.jpg');
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100% 91%;
-} */
-
 header.section h1 {
     font-size: 77px;
     font-weight: 900;
@@ -269,6 +266,18 @@ header.section h1 {
 
 header .box_bottom {
     margin-top: 50px;
+}
+
+@media (max-width: 660px) {
+    header.section h1 {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 660px) and (max-width: 900px) {
+    header.section h1 {
+        font-size: 50px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -310,7 +319,6 @@ header .box_bottom {
 
 header .container_large p {
     line-height: 22px;
-    /* margin-bottom: 40px; */
 }
 
 main .button_blue {
@@ -372,6 +380,12 @@ main .button_blue {
 }
 
 /* card */
+
+@media (max-width: 645px) {
+    .table_col_3 {
+        flex-direction: column;
+    }
+}
 
 .table_col_3 {
     justify-content: space-between;
@@ -458,12 +472,14 @@ main .button_blue {
     margin-bottom: 30px;
 }
 
-.card .body .left {
-    flex-basis: 70%;
+.card .body .top {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.card .body .right {
-    flex-basis: 30%;
+.card .body .bottom > p {
+    max-width: 615px;
 }
 
 .card .info {
@@ -689,6 +705,17 @@ main .button_blue {
     margin-top: 10px;
 }
 
+@media (max-width: 760px) {
+    .porta .container_small {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .porta .container_small * {
+        text-align: center;
+    }
+}
+
 /* domande frequenti */
 
 .requests {
@@ -736,6 +763,7 @@ footer .row {
     padding: 100px 0;
     justify-content: space-between;
     gap: 50px;
+    flex-wrap: wrap;
 }
 
 footer .row .col h3 {
@@ -788,12 +816,14 @@ footer .language > select > option {
     color: #fff;
 }
 
-@media (max-width: 850px) {
-    footer .row {
-        flex-direction: column;
+@media (min-width: 700px) and (max-width: 1050px) {
+    footer .row .col {
+        width: calc((100% - 50px * 2) / 3);
     }
-    footer .row .col ul {
-        display: flex;
-        flex-direction: row;
+}
+
+@media (max-width: 1050px) {
+    footer .row {
+        justify-content: flex-start;
     }
 }
