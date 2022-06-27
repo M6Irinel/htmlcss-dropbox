@@ -1,6 +1,7 @@
-
+/* IMPORT FONT GOOGLE */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* VALORI DI RESET */
 *{
     margin: 0;
     padding: 0;
@@ -54,7 +55,7 @@ a.button_blue:hover {
     background-color: #79acff;
 }
 
-/* header nav bar */
+/* HEADER PRINCIPAL NAVBAR =============================================================================== */
 
 header.fixed {
     position: fixed;
@@ -114,6 +115,8 @@ header a:hover:not(.logo, .button_blue) {
 .nav {
     align-items: center;
 }
+
+/* RESPONSE FOR MOBILE =============================================================================== */
 
 .nav_mobile {
     width: 34px;
@@ -256,7 +259,9 @@ header a:hover:not(.logo, .button_blue) {
     }
 }
 
-/* main header */
+/* END RESPONSE FOR MOBILE =============================================================================== */
+
+/* MAIN > HEADER */
 
 header.section h1 {
     font-size: 77px;
@@ -267,6 +272,8 @@ header.section h1 {
 header .box_bottom {
     margin-top: 50px;
 }
+
+/* ... RESPONSE FOR MOBILE =============================================================================== */
 
 @media (max-width: 660px) {
     header.section h1 {
@@ -288,6 +295,8 @@ header .box_bottom {
         order: -1;
     }
 }
+
+/* END RESPONSE FOR MOBILE =============================================================================== */
 
 
 .container_large .left {
@@ -330,7 +339,7 @@ main .button_blue {
     margin: 40px 0 0 2px;
 }
 
-/* main main */
+/* MAIN MAIN ========================================================================= */
 
 .bussines {
     margin-top: 5px;
@@ -352,6 +361,8 @@ main .button_blue {
 .fatturazione li {
     gap: 50px;
 }
+
+/* INPUT THE THO RADIO */
 
 .fatturazione li input {
     display: none;
@@ -379,7 +390,7 @@ main .button_blue {
     margin-right: 5px;
 }
 
-/* card */
+/* THE TABLE FOR "Find the business plan that's right for you" ===================== */
 
 @media (max-width: 645px) {
     .table_col_3 {
@@ -496,7 +507,7 @@ main .button_blue {
     width: 238px;
 }
 
-/* partner section */
+/* SECTION "Connect with a Dropbox partner" =================================== */
 
 .partner {
     margin-top: 20px;
@@ -531,7 +542,7 @@ main .button_blue {
     color: #000;
 }
 
-/* operazioni Dropbox Business */
+/* SECTION "Perform multiple operations with Dropbox Business" ====================== */
 
 .operazioni h2 {
     font-size: 40px;
@@ -561,7 +572,7 @@ main .button_blue {
     margin-bottom: 30px;
 }
 
-/* piu di 500.000 */
+/* SECTION "More than 500,000 teams use Dropbox Business" ============================ */
 
 .piu_di_500 h2 {
     font-size: 40px;
@@ -574,7 +585,7 @@ main .button_blue {
     display: block;
 }
 
-/* azziende section */
+/* SECTION CAROUSEL ================================================================= */
 
 .container {
     padding: 65px 0;
@@ -586,21 +597,33 @@ main .button_blue {
 
 .azziende {
     flex-wrap: wrap;
+    /* cursor: pointer; */
+}
+
+/* DESIGN BORDER DEFALT */
+
+.azziende .img::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
-/* DESIGNI BORDER DEFALT */
-.azziende .img.designit {
-    border: 15px solid #d1e9cd;
+.azziende .img.active::after {
+    border: 15px solid rgba(255, 255, 255, 0.5);
 }
 
-.azziende > .img:not(.designit):hover {
-    border: 15px solid #d1e9cd;
+.azziende .img:hover::after {
+    border: 15px solid rgba(255, 255, 255, 0.5);
 }
+
 
 .azziende .img {
+    position: relative;
     user-select: none;
-    border: 0px solid #d1e9cd;
     transition: all 0.1s;
     width: 50%;
     aspect-ratio: 1/1;
@@ -614,29 +637,28 @@ main .button_blue {
     filter: invert(1);
 }
 
-.designit {
+#designit {
     background-color: #a2d39b;
-    /* border: 15px solid #d1e9cd; */
 }
-.arizona {
+#arizona {
     background-color: #61082b;
 }
-.university {
+#university {
     background-color: #0093ce;
 }
-.topps {
+#topps {
     background-color: #ff1c1c;
 }
-.world {
+#world {
     background-color: #d5001f;
 }
-.hearst {
+#hearst {
     background-color: #b4d0e7;
 }
-.lonely {
+#lonely {
     background-color: #0d2481;
 }
-.clear {
+#clear {
     background-color: #ffd830;
 }
 
@@ -675,7 +697,7 @@ main .button_blue {
     }
 }
 
-/* porta dropbox business */
+/* SECTION "Bring Dropbox Business into your business" =============================== */
 
 .porta {
     background-color: #b4d0e7;
@@ -716,7 +738,7 @@ main .button_blue {
     }
 }
 
-/* domande frequenti */
+/* SECTION "Frequent questions" ==================================================== */
 
 .requests {
     padding: 150px 0 100px;
@@ -739,6 +761,17 @@ main .button_blue {
     transition: all 0.2s;
 }
 
+.requests .request:first-of-type {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.requests .request:last-of-type {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: 50px;
+}
+
 .requests .request:hover {
     background-color: #ece7e0;
 }
@@ -747,12 +780,7 @@ main .button_blue {
     margin-right: 35px;
 }
 
-.requests hr:last-of-type {
-    margin-bottom: 50px;
-
-}
-
-/* footer */
+/* FOOTER =========================================================================== */
 
 footer {
     background-color: #000;
